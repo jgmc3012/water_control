@@ -31,10 +31,11 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'measurers',
-    'houses',
     'rest_framework',
+    'measurers',
     'consumption_histories',
+    'houses',
+    'family_bosses',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
