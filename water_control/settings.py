@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'measurers',
+    'houses',
     'rest_framework',
     'consumption_histories',
     'django.contrib.admin',
