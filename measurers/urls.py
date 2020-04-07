@@ -5,7 +5,7 @@ from . import views
 app_name = 'measurers'
 
 urlpatterns = [
-    path('update/<int:pk>/', views.MeasurerUpdate.as_view(), name='update'),
+    path('update/<str:house_id>/', views.MeasurerUpdate.as_view(), name='update'),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

@@ -7,6 +7,8 @@ from rest_framework import status
 
 from .utils import create_consumption_and_invoice
 
+from django.http import Http404
+
 class MeasurerUpdate(APIView):
 
     def try_get_obj(self, pk):

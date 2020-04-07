@@ -1,5 +1,3 @@
-from django.http import Http404
-
 from django.db import transaction
 
 from consumption_histories.models import ConsumptionHistory
