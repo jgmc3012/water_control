@@ -5,4 +5,4 @@ from .models import Measurer
 class MeasurerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Measurer
-        fields = ['measure']
+        fields = ['measure', 'last_visit']

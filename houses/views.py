@@ -1,3 +1,26 @@
-from django.shortcuts import render
+from rest_framework import mixins
+from rest_framework import generics
 
-# Create your views here.
+from .serializers import HouseSerializer
+
+from .models import House
+from measurers.models import Measurer
+
+
+
+class HouseViewListCreate(generics.ListCreateAPIView):
+    queryset = House.objects.all()
+    serializer_class = HouseSerializer
+
+    def perform_create(self, serializers):
+        serializers.save(measurer=Measurer.objects.create())
+
+class HouseDetailView(mixins.ListModelMixin,
+                  generics.GenericAPIView):
+    queryset = House.objects.all()
+    serializer_class = HouseSerializer
+
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
+
+
