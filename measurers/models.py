@@ -7,12 +7,18 @@ from django.db.models.signals import pre_save
 
 class Measurer(models.Model):
     measure = models.PositiveIntegerField(default=0)
-    last_visit = models.DateField(default=datetime.today)
+    last_visit = models.DateField(default=datetime.now().date)
     created_at = models.DateTimeField(auto_now_add=True)
+
+    @staticmethod
+    def get_all(pk:int):
+        measurer = Measurer.objects.filter(
+            pk=pk).select_related('house').select_related('house__familyboss')
+        return measurer.first()
 
     def register_visit(self, measure:int):
         last_visit = self.last_visit
-        self.last_visit = datetime.today()
+        self.last_visit = datetime.now().date()
         self.measure = measure
         self.save()
         return last_visit
@@ -29,6 +35,6 @@ class Measurer(models.Model):
         return Measurer.objects.filter(pk=pk).exists()
 
 def set_last_visit(sender, instance, *args, **kwargs):
-    instance.last_visit = datetime.today()
+    instance.last_visit = datetime.now().date()
 
 pre_save.connect(set_last_visit, sender=Measurer)

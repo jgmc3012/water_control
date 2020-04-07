@@ -7,7 +7,6 @@ from .models import House
 from measurers.models import Measurer
 
 
-
 class HouseViewListCreate(generics.ListCreateAPIView):
     queryset = House.objects.all()
     serializer_class = HouseSerializer
@@ -22,5 +21,3 @@ class HouseDetailView(mixins.ListModelMixin,
 
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
-
-
