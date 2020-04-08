@@ -11,8 +11,8 @@ class HouseViewListCreate(generics.ListCreateAPIView):
     queryset = House.objects.all()
     serializer_class = HouseSerializer
 
-    def perform_create(self, serializers):
-        serializers.save(measurer=Measurer.objects.create())
+    def perform_create(self, serializer):
+        serializer.save(measurer=Measurer.objects.create())
 
 class HouseDetailView(mixins.ListModelMixin,
                   generics.GenericAPIView):

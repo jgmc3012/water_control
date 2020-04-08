@@ -11,13 +11,13 @@ from consumption_histories.models import ConsumptionHistory
 from django.utils import timezone
 
 class Invoice(models.Model):
-    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    amount = models.DecimalField(max_digits=20, decimal_places=2)
     client = models.ForeignKey(FamilyBoss, on_delete=models.SET_NULL, null=True)
     place = models.ForeignKey(House, on_delete=models.CASCADE)
     paid = models.BooleanField(default=False)
     payment_date = models.DateTimeField(null=True, default=None)
     created_at = models.DateTimeField(auto_now_add=True)
-    description = models.CharField(max_length=500, null=True, blank=True)
+    description = models.CharField(max_length=500, default='', blank=True)
     detail = models.ForeignKey(ConsumptionHistory, on_delete=models.CASCADE)
 
     def __str__(self):

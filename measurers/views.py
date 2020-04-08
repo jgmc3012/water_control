@@ -11,15 +11,15 @@ from django.http import Http404
 
 class MeasurerUpdate(APIView):
 
-    def try_get_obj(self, pk):
-            measurer = Measurer.get_all()
+    def try_get_obj(self, house_id):
+            measurer = Measurer.get_all(house_id)
             if not measurer:
                 raise Http404('Measurer not found')
             return measurer
 
-    def put(self, request, pk, format='json'):
+    def put(self, request, house_id, format='json'):
         data = request.data
-        measurer = self.try_get_obj(pk)
+        measurer = self.try_get_obj(house_id)
         measure = data.get('measure')
 
         serializer = MeasurerSerializer(measurer, data=data)
