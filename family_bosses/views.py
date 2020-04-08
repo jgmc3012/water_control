@@ -42,3 +42,14 @@ class FamilyBossViewSet(viewsets.ModelViewSet):
             res = pay_invoices(invoices, amount)
             return Response(res)
         return Response({'message':'No se envio el amount'},status=status.HTTP_400_BAD_REQUEST)
+
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        if instance.has_pending_invoices:
+            return Response({'ok':False,'message':'Pending payments'})
+
+        self.perform_destroy(instance)
+        return Response({'ok':True}, status=status.HTTP_204_NO_CONTENT)
+
+    def perform_destroy(self, instance):
+        instance.deactivate()

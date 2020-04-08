@@ -12,7 +12,7 @@ from django.utils import timezone
 
 class Invoice(models.Model):
     amount = models.DecimalField(max_digits=20, decimal_places=2)
-    client = models.ForeignKey(FamilyBoss, on_delete=models.SET_NULL, null=True)
+    client = models.ForeignKey(FamilyBoss, on_delete=models.CASCADE)
     place = models.ForeignKey(House, on_delete=models.CASCADE)
     paid = models.BooleanField(default=False)
     payment_date = models.DateTimeField(null=True, default=None)
