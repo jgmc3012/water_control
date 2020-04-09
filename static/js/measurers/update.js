@@ -11,6 +11,6 @@ $form.addEventListener('submit', function (event) {
         const method = 'PUT'
         sendData(data, url, method)
         .then( data =>  show_alert(true, `Medidor de la casa ${data.house} Actualizados.
-        Hay una factura pendiente de por ${data.amount} por los cargos del servicio de agua.`))
+        Hay una factura pendiente de por $${data.amount} por los cargos del servicio de agua.`))
     }
 })

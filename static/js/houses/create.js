@@ -2,7 +2,6 @@ $form = document.getElementById('form_house')
 
 $form.addEventListener('submit', function (event) {
     event.preventDefault()
-
     const url = `${this.action}`
     const data = getJsonFromForm("[api='water_control']")
     const method = 'POST'

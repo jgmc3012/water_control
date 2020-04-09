@@ -26,5 +26,5 @@ class InvoiceListView(APIView):
         invoices = Invoice.objects.filter(created_at__range=(from_date, to_date))
         return invoices
 
-def visual_new_pay(request):
+def visual_pay(request):
     return render(request, 'invoices/new_pay.html')

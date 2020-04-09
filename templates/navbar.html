@@ -1,5 +1,7 @@
 {% url 'houses_visual:create' as house_create %}
 {% url 'family_bosses_visual:create' as family_create %}
+{% url 'measurers_visual:update' as measurer_update %}
+{% url 'invoices_visual:pay' as invoice_pay %}
 
 <nav class="navbar navbar-expand-md bg-info navbar-dark">
     <a href="#" class="navbar-brand">Control de agua</a>
@@ -23,6 +25,17 @@
                     <div class="nav-link" data-toggle="dropdown">Familias</div>
                     <div class="dropdown-menu">
                       <a class="dropdown-item" href="{{ family_create }}">Registrar</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item {% if request.path == measurer_update %}active{% endif %}">
+                <a class="nav-link" href="{{ measurer_update }}">Actualizar medidor</a>    
+            </li>
+            <li class="nav-item {% if request.path == invoice_pay %}active{% endif %}">
+                <div class="dropdown">
+                    <div class="nav-link" data-toggle="dropdown">Facturas</div>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="{{ invoice_pay }}">Pagar</a>
                     </div>
                 </div>
             </li>

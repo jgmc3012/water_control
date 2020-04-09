@@ -16,8 +16,11 @@ function sendData(payload, url, method) {
             'Content-Type': 'application/json',
             "X-Requested-With": "XMLHttpRequest",
         }
-        const body = JSON.stringify(payload)
-        fetch(url,{method,headers,body})
+        opts = {method,headers}
+        if (method != 'GET') {
+            opts['body'] = JSON.stringify(payload)
+        }
+        fetch(url, opts)
         .then( response => {
             okey_fetch = response.ok
             return response.json()
