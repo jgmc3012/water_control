@@ -1,13 +1,13 @@
 const snippetFormPay = `
 <div class='mt-2'>
-    <form action="/api/family-bosses/12345/pay_invoices/">
+    <form id="payInvoices"  action="/api/family-bosses/12345/pay_invoices/">
         <div class="form-group">
             <label for="amount">Ingresa el monto a cancelar</label>
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text">$</span>
                 </div>
-                <input type="number"
+                <input type="number" api='water_control'
                     class="form-control" name="amount" id="amount" placeholder="600000.00">
                 <div class="input-group-append">
                     <button class="btn btn-primary">Pagar</button>
@@ -70,8 +70,10 @@ const SnippetListInvoices = (invoices) => {
         ${snippetFormPay}
         <div class="row">
             <div class="ml-auto text-center">
-                <div class="font-weight-bold">Deuda hasta la fecha:</div>
-                <p class="text-danger">$${total}</p>
+                <div class='mr-2'>
+                    <div class="font-weight-bold">Deuda total hasta la fecha:</div>
+                    <p class="text-danger">$${total}</p>
+                </div>
             </div>
         </div>
         <div>${list}</div>

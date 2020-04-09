@@ -35,7 +35,7 @@ class FamilyBossViewSet(viewsets.ModelViewSet):
         serializer = InvoiceSerializer(invoices, many=True)
         return Response(serializer.data)
 
-    @action(detail=True, methods=['post'])
+    @action(detail=True, methods=['put'])
     def pay_invoices(self, request, *args, **kwargs):
         amount = request.data.get('amount')
         if amount:
