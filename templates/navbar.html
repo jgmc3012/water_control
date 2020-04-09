@@ -1,3 +1,6 @@
+{% url 'houses_visual:create' as house_create %}
+{% url 'family_bosses_visual:create' as family_create %}
+
 <nav class="navbar navbar-expand-md bg-info navbar-dark">
     <a href="#" class="navbar-brand">Control de agua</a>
 
@@ -6,5 +9,23 @@
     </button> 
 
     <div id="navb" class="navbar-collapse collapse hide">
+        <ul class="navbar-nav">
+            <li class="nav-item {% if request.path == house_create %}active{% endif %}">
+                <div class="dropdown">
+                    <div class="nav-link" data-toggle="dropdown">Casas</div>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="{{ house_create }}">Registrar</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item {% if request.path == family_create %}active{% endif %}">
+                <div class="dropdown">
+                    <div class="nav-link" data-toggle="dropdown">Familias</div>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="{{ family_create }}">Registrar</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
     </div>
 </nav>

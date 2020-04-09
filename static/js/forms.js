@@ -39,7 +39,7 @@ function sendData(payload, url, method) {
  * Selecciona por medio de un selector dado todos los item(clave:valor)
  * y los retorna como un JSON
  * 
- * @param {*} selector 
+ * @param {string} selector 
  */
 function getJsonFromForm(selector) {
     elements = document.querySelectorAll(selector)
