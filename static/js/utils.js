@@ -38,7 +38,7 @@ function appendElement(Selectorcontaner, HTMLString) {
 
 function show_alert(success, msg) {
     const type = success ? 'success':'danger'
-    const mtype = success ? 'Buen Trabajo':'Error'
+    const mtype = success ? 'Buen Trabajo. ':'Error. '
     const HTMLString = alertInfoHTML(msg, type, mtype)
     insertElement('#InfoMsg', HTMLString)
 }
