@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
 <div class="col">
     <h2>
@@ -9,4 +9,8 @@
         {% include "measurers/snippets/form.html" %}
     </div>
 </div>
+{% endblock %}
+
+{% block javascript %}
+<script src="{% static 'js/measurers/update.js' %}"></script>
 {% endblock %}

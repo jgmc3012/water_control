@@ -26,7 +26,7 @@ class MeasurerUpdate(APIView):
 
         serializer = MeasurerSerializer(measurer, data=data)
         if serializer.is_valid():
-            res = create_consumption_and_invoice(measurer, measure)
+            res = create_consumption_and_invoice(measurer, int(measure))
             return Response(res)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
