@@ -1,3 +1,5 @@
+from django.shortcuts import render
+
 from .models import Measurer
 from .serializers import MeasurerSerializer
 
@@ -27,3 +29,6 @@ class MeasurerUpdate(APIView):
             res = create_consumption_and_invoice(measurer, measure)
             return Response(res)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+def visual_update(request):
+    return render(request, 'measurers/update.html')

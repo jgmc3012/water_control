@@ -1,0 +1,16 @@
+<form action="{% url 'measurers:update' 12345 %}">
+    <div class="form-group">
+        <label for="house">Identificación:</label>
+        <input type="text" class="form-control" name="house" id="house" aria-describedby="helpHouse" placeholder="ABC-123">
+        <small id="helpHouse" class="form-text text-muted">El numero o alfanumerico de identificacion de la casa o establacimiento</small>
+    </div>
+
+    <div class="form-group">
+      <label for="">Medida:</label>
+      <input type="text"
+        class="form-control" name="measurer" id="measurer" aria-describedby="helpId" placeholder="12400500">
+      <small id="helpId" class="form-text text-muted">Numero indicado en el medidor de agua actualmente en metros cubicos</small>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Actualizar</button>
+</form>

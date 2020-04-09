@@ -1,3 +1,5 @@
+from django.shortcuts import render
+
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
@@ -23,3 +25,6 @@ class InvoiceListView(APIView):
         from_date, to_date = get_range_date(year, month, day)
         invoices = Invoice.objects.filter(created_at__range=(from_date, to_date))
         return invoices
+
+def visual_new_pay(request):
+    return render(request, 'invoices/new_pay.html')

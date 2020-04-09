@@ -1,0 +1,18 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="col">
+    <h2>
+        Registrar un nuevo hogar o establecimiento
+    </h2>
+    <div>
+        {% include "houses/snippets/form.html" %}
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+
+<script src='{% static "js/family_bosses/create.js" %}'></script>
+{% endblock javascript %}

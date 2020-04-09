@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="col">
+  <h3>Registrar pago de un cliente</h3>
+  <div>
+    {% include "invoices/snippets/form.html" %}
+  </div>
+  <div>
+    <h3>Detalle de cobro</h3>
+    <div class="col-lg-4 col-md-6 col-sm-10">
+      {% include "invoices/snippets/invoice.html" %}
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,3 +1,5 @@
+from django.shortcuts import render
+
 from rest_framework import viewsets
 from rest_framework import status
 from rest_framework.decorators import action
@@ -53,3 +55,6 @@ class FamilyBossViewSet(viewsets.ModelViewSet):
 
     def perform_destroy(self, instance):
         instance.deactivate()
+
+def visual_create(request):
+    return render(request, 'family_bosses/create.html')
