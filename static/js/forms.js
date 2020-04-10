@@ -31,7 +31,13 @@ function sendData(payload, url, method) {
             if (okey_fetch) {
                 resolve(data)
             } else {
-                show_alert(okey_fetch, JSON.stringify(data))
+                console.error(data)
+                let listStr = ''
+                for (key in data) {
+                    listStr += `<li>${data[key]}</li>`
+                }
+                const msg = listStr ? `<ul>${listStr}</ul>`:JSON.stringify(data)
+                show_alert(okey_fetch, msg)
                 reject(data)
             }
         })
