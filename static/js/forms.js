@@ -23,6 +23,7 @@ function sendData(payload, url, method) {
         fetch(url, opts)
         .then( response => {
             okey_fetch = response.ok
+            status_fetch = response.status
             return response.json()
         })
         .then( data => {
@@ -32,6 +33,15 @@ function sendData(payload, url, method) {
             } else {
                 show_alert(okey_fetch, JSON.stringify(data))
                 reject(data)
+            }
+        })
+        .catch( e => {
+            toggleLoading()    
+            console.error(e)
+            if (status_fetch<500) {
+                show_alert(false, 'Verifique los datos ingresados')
+            } else {
+                show_alert(false, 'Ups! Esto es vergonzoso. Verifique sus datos e intente de nuevo.\nSi el error persiste; por favor notique de esto al equipo de desarrollo.')
             }
         })
         

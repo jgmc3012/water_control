@@ -5,5 +5,6 @@ from . import views
 app_name = 'invoices_visual'
 
 urlpatterns = [
-    path('nuevo-pago', views.visual_pay, name='pay')
+    path('pagar', views.visual_pay, name='pay'),
+    path('listar', views.visual_list, name='list'),
 ]

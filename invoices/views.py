@@ -10,6 +10,8 @@ from rest_framework import status
 
 from .utils import get_range_date
 
+from datetime import datetime
+
 class InvoiceListView(APIView):
     serializer_class = InvoiceSerializer
 
@@ -27,4 +29,8 @@ class InvoiceListView(APIView):
         return invoices
 
 def visual_pay(request):
-    return render(request, 'invoices/new_pay.html')
+    return render(request, 'invoices/pay.html')
+
+
+def visual_list(request):
+    return render(request, 'invoices/list.html', {'current_year': datetime.now().year})

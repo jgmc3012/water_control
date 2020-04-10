@@ -23,7 +23,7 @@ const loadingStr = (`
                     </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-danger">Cancelar</button>
+                  <button type="button" class="btn btn-danger" id="modal_close">Cerrar</button>
                 </div>
               </div>
             </div>
@@ -37,8 +37,6 @@ toggleLoading = () => {
     if (loaderModal) {
         loaderModal.remove()
     } else {
-        loaderModal = createTemplate(loadingStr)
-        let container = document.querySelector('body')
-        container.append(loaderModal)
+        appendElement('body', loadingStr)
     }
 }

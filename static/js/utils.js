@@ -1,7 +1,7 @@
 function createTemplate(HTMLString) {
     const html = document.implementation.createHTMLDocument();
     html.body.innerHTML = HTMLString;
-    return html.body.children[0];
+    return html.body.children;
 }
 
 function getCookie(name) {
@@ -25,15 +25,23 @@ function insertElement(Selectorcontaner, HTMLString) {
         container.children[0].remove();
         insertElement(Selectorcontaner, HTMLString)
     } else if (HTMLString) {
-        element = createTemplate(HTMLString);
-        container.append(element)
+        addElements(container, HTMLString)
     }
 }
 
 function appendElement(Selectorcontaner, HTMLString) {
     let container = document.querySelector(Selectorcontaner)
-    element = createTemplate(HTMLString);
-    container.append(element)
+    addElements(container, HTMLString)
+}
+
+function addElements(container, HTMLString) {
+    elements = createTemplate(HTMLString);
+    if (elements.length > 1) {
+        console.warn(`Elemento ${elements[0]} esta haciendo una insercion recursiva. De ser posible envuelve el HTMLString en un <div></div>`)
+    }
+    Array.from(elements).forEach( element => {
+        container.append(element)
+    })
 }
 
 function show_alert(success, msg) {

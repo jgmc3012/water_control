@@ -12,7 +12,7 @@ $form.addEventListener('submit', function (event) {
             insertElement('#invoice_list', HTMLString)
             addEventListenerToFormPay(data[0].client)
         } else {
-            show_alert(true, `El cliente con id ${data.house_id} no tiene facturas pendientes`) 
+            show_alert(true, `El cliente con no tiene facturas pendientes`) 
         }
     })
 })
