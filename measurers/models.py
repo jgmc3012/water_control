@@ -10,9 +10,16 @@ class Measurer(models.Model):
     last_visit = models.DateField(default=datetime.today)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    @staticmethod
+    def get_all(house_id:str):
+        house_id = house_id.upper()
+        measurer = Measurer.objects.filter(
+            house__house_id=house_id).select_related('house').select_related('house__familyboss')
+        return measurer.first()
+
     def register_visit(self, measure:int):
         last_visit = self.last_visit
-        self.last_visit = datetime.today()
+        self.last_visit = datetime.now().date()
         self.measure = measure
         self.save()
         return last_visit
@@ -29,6 +36,6 @@ class Measurer(models.Model):
         return Measurer.objects.filter(pk=pk).exists()
 
 def set_last_visit(sender, instance, *args, **kwargs):
-    instance.last_visit = datetime.today()
+    instance.last_visit = datetime.now().date()
 
 pre_save.connect(set_last_visit, sender=Measurer)

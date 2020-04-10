@@ -1,0 +1,112 @@
+[
+{
+  "model": "houses.house",
+  "pk": 1,
+  "fields": {
+    "line1": "Calle numero 1",
+    "line2": "Calle numero 2",
+    "zip_code": "A-1234",
+    "house_id": "A1",
+    "measurer": 1
+  }
+},
+{
+  "model": "houses.house",
+  "pk": 2,
+  "fields": {
+    "line1": "Calle numero 1",
+    "line2": "Calle numero 2",
+    "zip_code": "A-1234",
+    "house_id": "A2",
+    "measurer": 2
+  }
+},
+{
+  "model": "houses.house",
+  "pk": 3,
+  "fields": {
+    "line1": "Calle numero 1",
+    "line2": "Calle numero 2",
+    "zip_code": "A-1234",
+    "house_id": "A3",
+    "measurer": 3
+  }
+},
+{
+  "model": "houses.house",
+  "pk": 4,
+  "fields": {
+    "line1": "Calle numero 1",
+    "line2": "Calle numero 2",
+    "zip_code": "A-1234",
+    "house_id": "A4",
+    "measurer": 4
+  }
+},
+{
+  "model": "houses.house",
+  "pk": 5,
+  "fields": {
+    "line1": "Calle numero 1",
+    "line2": "Calle numero 2",
+    "zip_code": "A-1234",
+    "house_id": "A5",
+    "measurer": 5
+  }
+},
+{
+  "model": "houses.house",
+  "pk": 6,
+  "fields": {
+    "line1": "Calle numero 1",
+    "line2": "Calle numero 2",
+    "zip_code": "A-1234",
+    "house_id": "A6",
+    "measurer": 6
+  }
+},
+{
+  "model": "houses.house",
+  "pk": 7,
+  "fields": {
+    "line1": "Calle numero 1",
+    "line2": "Calle numero 2",
+    "zip_code": "A-1234",
+    "house_id": "A7",
+    "measurer": 7
+  }
+},
+{
+  "model": "houses.house",
+  "pk": 8,
+  "fields": {
+    "line1": "Calle numero 1",
+    "line2": "Calle numero 2",
+    "zip_code": "A-1234",
+    "house_id": "A8",
+    "measurer": 8
+  }
+},
+{
+  "model": "houses.house",
+  "pk": 9,
+  "fields": {
+    "line1": "Calle numero 1",
+    "line2": "Calle numero 2",
+    "zip_code": "A-1234",
+    "house_id": "A9",
+    "measurer": 9
+  }
+},
+{
+  "model": "houses.house",
+  "pk": 10,
+  "fields": {
+    "line1": "Calle numero 1",
+    "line2": "Calle numero 2",
+    "zip_code": "A-1234",
+    "house_id": "A10",
+    "measurer": 10
+  }
+}
+]

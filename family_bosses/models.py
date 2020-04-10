@@ -8,3 +8,12 @@ class FamilyBoss(models.Model):
     email = models.EmailField(null=True, unique=True)
     card_id = models.PositiveIntegerField(unique=True)
     house = models.OneToOneField(House, on_delete=models.SET_NULL, null=True)
+    active = models.BooleanField(default=True)
+
+    def deactivate(self):
+        self.active = False
+        self.save()
+
+
+    def has_pending_invoices(self):
+        return self.invoice_set.filter(paid=False).exists()

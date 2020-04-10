@@ -1,0 +1,112 @@
+[
+{
+  "model": "family_bosses.familyboss",
+  "pk": 1,
+  "fields": {
+    "first_name": "first1",
+    "last_name": "last1",
+    "email": "user1@example.com",
+    "card_id": 11111,
+    "house": 1
+  }
+},
+{
+  "model": "family_bosses.familyboss",
+  "pk": 2,
+  "fields": {
+    "first_name": "first2",
+    "last_name": "last2",
+    "email": "user2@example.com",
+    "card_id": 11112,
+    "house": 2
+  }
+},
+{
+  "model": "family_bosses.familyboss",
+  "pk": 3,
+  "fields": {
+    "first_name": "first3",
+    "last_name": "last3",
+    "email": "user3@example.com",
+    "card_id": 11113,
+    "house": 3
+  }
+},
+{
+  "model": "family_bosses.familyboss",
+  "pk": 4,
+  "fields": {
+    "first_name": "first4",
+    "last_name": "last4",
+    "email": "user4@example.com",
+    "card_id": 11114,
+    "house": 4
+  }
+},
+{
+  "model": "family_bosses.familyboss",
+  "pk": 5,
+  "fields": {
+    "first_name": "first5",
+    "last_name": "last5",
+    "email": "user5@example.com",
+    "card_id": 11115,
+    "house": 5
+  }
+},
+{
+  "model": "family_bosses.familyboss",
+  "pk": 6,
+  "fields": {
+    "first_name": "first6",
+    "last_name": "last6",
+    "email": "user6@example.com",
+    "card_id": 11116,
+    "house": 6
+  }
+},
+{
+  "model": "family_bosses.familyboss",
+  "pk": 7,
+  "fields": {
+    "first_name": "first7",
+    "last_name": "last7",
+    "email": "user7@example.com",
+    "card_id": 11117,
+    "house": 7
+  }
+},
+{
+  "model": "family_bosses.familyboss",
+  "pk": 8,
+  "fields": {
+    "first_name": "first8",
+    "last_name": "last8",
+    "email": "user8@example.com",
+    "card_id": 11118,
+    "house": 8
+  }
+},
+{
+  "model": "family_bosses.familyboss",
+  "pk": 9,
+  "fields": {
+    "first_name": "first9",
+    "last_name": "last9",
+    "email": "user9@example.com",
+    "card_id": 11119,
+    "house": 9
+  }
+},
+{
+  "model": "family_bosses.familyboss",
+  "pk": 10,
+  "fields": {
+    "first_name": "first10",
+    "last_name": "last10",
+    "email": "user10@example.com",
+    "card_id": 111110,
+    "house": 10
+  }
+}
+]

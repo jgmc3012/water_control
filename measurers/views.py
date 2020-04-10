@@ -1,34 +1,29 @@
 from .models import Measurer
 from .serializers import MeasurerSerializer
+
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
-from django.shortcuts import get_object_or_404
+from .utils import create_consumption_and_invoice
 
-from django.db import transaction
-
-from consumption_histories.models import ConsumptionHistory
-
+from django.http import Http404
 
 class MeasurerUpdate(APIView):
-    def put(self, request, pk, format='json'):
+
+    def try_get_obj(self, house_id):
+            measurer = Measurer.get_all(house_id)
+            if not measurer:
+                raise Http404('Measurer not found')
+            return measurer
+
+    def put(self, request, house_id, format='json'):
         data = request.data
-        measurer = get_object_or_404(Measurer, pk=pk)
+        measurer = self.try_get_obj(house_id)
         measure = data.get('measure')
 
         serializer = MeasurerSerializer(measurer, data=data)
         if serializer.is_valid():
-            with transaction.atomic():
-                consumption = measurer.calculate_consumption(measure)
-                ConsumptionHistory.objects.create(
-                    from_date = measurer.last_visit,
-                    consumption = consumption,
-                    measurer = measurer
-                )
-                measurer.register_visit(measure)
-            data.update({
-                'consumption' : consumption,
-            })
-            return Response(data)
+            res = create_consumption_and_invoice(measurer, measure)
+            return Response(res)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
