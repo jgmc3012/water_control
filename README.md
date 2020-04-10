@@ -31,7 +31,7 @@ python manage.py collectstatic
 ```
 
 # API
-La documentacion de la API se puede encontrar en este [link](https://www.getpostman.com/collections/4de493acc29b6b17c7a3)
+La documentacion de la API se puede encontrar en este [link](https://documenter.getpostman.com/view/9501880/SzYgRaKk?version=latest)
 
 # Credenciales
 ## Usuario de pruebas para utilizar en la web.
