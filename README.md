@@ -36,6 +36,6 @@ La documentacion de la API se puede encontrar en este [link](https://documenter.
 # Credenciales
 ## Usuario de pruebas para utilizar en la web.
 Usuario = user.test
-Contraseña = 1q2w3e4r5t
+Contraseña = 1q2w3e4r5tt5r4e3w2q1
 
 **PD:** Una vez concluida la pureba para la cual se realizo esta app. La Base De datos, se eliminara al llegar a los 10Mb.
