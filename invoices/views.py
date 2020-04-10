@@ -12,7 +12,11 @@ from .utils import get_range_date
 
 from datetime import datetime
 
+from django.contrib.auth.decorators import login_required
+from rest_framework import permissions
+
 class InvoiceListView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
     serializer_class = InvoiceSerializer
 
     def get(self, request, year, month=None, day=None, *args, **kwargs):
@@ -28,9 +32,11 @@ class InvoiceListView(APIView):
         invoices = Invoice.objects.filter(created_at__range=(from_date, to_date))
         return invoices
 
+
+@login_required()
 def visual_pay(request):
     return render(request, 'invoices/pay.html')
 
-
+@login_required()
 def visual_list(request):
     return render(request, 'invoices/list.html', {'current_year': datetime.now().year})
