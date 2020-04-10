@@ -1,3 +1,5 @@
+from django.shortcuts import render
+
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
@@ -7,6 +9,8 @@ from .models import Invoice
 from rest_framework import status
 
 from .utils import get_range_date
+
+from datetime import datetime
 
 class InvoiceListView(APIView):
     serializer_class = InvoiceSerializer
@@ -23,3 +27,10 @@ class InvoiceListView(APIView):
         from_date, to_date = get_range_date(year, month, day)
         invoices = Invoice.objects.filter(created_at__range=(from_date, to_date))
         return invoices
+
+def visual_pay(request):
+    return render(request, 'invoices/pay.html')
+
+
+def visual_list(request):
+    return render(request, 'invoices/list.html', {'current_year': datetime.now().year})

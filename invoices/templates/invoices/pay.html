@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="col">
+  <div>
+    <div class="h3">
+      Ingrese el id de un cliente para consultar sus facturas pendientes
+    </div>
+    {% include "invoices/snippets/form.html" %}
+  </div>
+  <div id='invoice_list'>
+
+  </div>
+</div>
+
+{% endblock %}
+{% block javascript %}
+<script src="{% static 'js/invoices/templates.js' %}"></script>
+<script src="{% static 'js/invoices/search.js' %}"></script>
+{% endblock %}
+  <div class="col-lg-4 col-md-6 col-sm-10">
+    {% include "invoices/snippets/invoice.html" %}
+  </div>

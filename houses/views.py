@@ -1,3 +1,5 @@
+from django.shortcuts import render
+
 from rest_framework import mixins
 from rest_framework import generics
 
@@ -21,3 +23,6 @@ class HouseDetailView(mixins.ListModelMixin,
 
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
+
+def visual_create(request):
+    return render(request, 'houses/create.html')

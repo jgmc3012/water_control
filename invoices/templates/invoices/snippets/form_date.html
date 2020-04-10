@@ -1,0 +1,41 @@
+<form id="formListInvoice" action="{% url 'invoices:list_year' 12345 %}">
+    <div class="form-group">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm12 input-group mt-2">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="year">Año:</label>
+                </div>
+                <input api='water_control' class="form-control" type="number" name="year" id="year" placeholder="ingrese un año" min="1900"  max="{{ current_year }}">
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm12 input-group mt-2">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="month">Mes:</label>
+                </div>
+                <select api='water_control' class="form-control" name="month" id="month" disabled>
+                    <option value="0">Todos</option>
+                    <option value="1">Enero</option>
+                    <option value="2">Febrero</option>
+                    <option value="3">Marzo</option>
+                    <option value="4">Abril</option>
+                    <option value="5">Mayo</option>
+                    <option value="6">Junio</option>
+                    <option value="7">Julio</option>
+                    <option value="8">Agosto</option>
+                    <option value="9">Septiembre</option>
+                    <option value="10">Octubre</option>
+                    <option value="11">Noviembre</option>
+                    <option value="12">Diciembre</option>
+                </select>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm12 input-group mt-2">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="day">Día:</label>
+                </div>
+                <select api='water_control' class="form-control" name="day" id="day" disabled>
+                    <option value="0">Todos</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary" id="submit" disabled>Consultar Facturas</button>
+</form>

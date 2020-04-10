@@ -1,5 +1,5 @@
 import calendar
-
+from decimal import Decimal
 from django.db import transaction
 
 from django.utils import timezone
@@ -37,9 +37,10 @@ def pay_invoices(invoices:list, amount)->dict:
     ok : Indica si se pudo o no cancelar el total de facturas pendientes.
     change : Monto restante del pago de facturas
     number_of_payments : Numero de facturas pagas
-    unpaid_invoice : datos de la ultima factura que se intento procesar.
+    unpaid_invoices : datos de las facturas que no se pudieron procesar.
     """
     ok = True
+    amount = Decimal(amount)
     with transaction.atomic():
         for index, invoice in enumerate(invoices):
             if amount >= invoice.amount:
@@ -48,9 +49,15 @@ def pay_invoices(invoices:list, amount)->dict:
             else:
                 ok = False
                 break
+    if ok:
+        number_of_payments = index+1
+        unpaid_invoices = []
+    else:
+        number_of_payments = index
+        unpaid_invoices = invoices[index:invoices.count()]
     return {
         'ok' : ok,
         'change' : amount,
-        'number_of_payments' : index+1 if ok else index,
-        'unpaid_invoice' : InvoiceSerializer(invoice).data,
+        'number_of_payments' : number_of_payments,
+        'unpaid_invoices' : InvoiceSerializer(unpaid_invoices, many=True).data,
     }

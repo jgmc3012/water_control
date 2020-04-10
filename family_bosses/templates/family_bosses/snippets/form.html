@@ -1,0 +1,38 @@
+<form id="famile_boss" action="{% url 'familyboss-list' %}">
+    <div class="form-group">
+      <label for="first_name">Nombres:</label>
+      <input type="text" api='water_control' class="form-control" name="first_name" id="first_name" placeholder="Pedro Pablo">
+    </div>
+
+    <div class="form-group">
+        <label for="last_name">Apellidos:</label>
+        <input type="text" api='water_control' class="form-control" name="last_name" id="last_name" placeholder="Perez Palma">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Correo electronico:</label>
+      <input type="email" api='water_control' class="form-control" name="email" id="email" aria-describedby="emailHelpId" placeholder="pedroperez@example.com">
+    </div>
+    
+    <div class="form-group">
+      <label for="card_id">Numero de identidad</label>
+      <input type="number" api='water_control'
+        class="form-control" name="card_id" id="card_id" placeholder="123456789">
+    </div>
+
+    <div class="form-group">
+      <label for="house">Casa</label>
+      <input type="text" api='water_control' class="form-control" name="house" id="house" aria-describedby="helpHouse" placeholder="ABC-123">
+      <small id="helpHouse" class="form-text text-muted">El numero o alfanumerico de identificacion de la casa o establacimiento</small>
+    </div>
+    
+    <input api='water_control' type="hidden" name="old_card_id" id="old_card_id">
+    {% if edit %}
+    <div class="row">
+      <button id="detail_submit" type="submit" class="btn btn-primary mr-2">Actualizar</button>
+      <button id="detail_delete" type="button" class="btn btn-danger">Eliminar</button>
+    </div>
+    {% else %}
+        <button type="submit" class="btn btn-primary">Crear</button>
+    {% endif %}
+</form>
