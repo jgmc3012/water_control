@@ -11,9 +11,29 @@ class FamilyBoss(models.Model):
     active = models.BooleanField(default=True)
 
     def deactivate(self):
-        self.active = False
-        self.save()
+        if self.active:
+            self.active = False
+            self.house = None
+            self.email = None
+            self.save()
 
+    def activate(self):
+        if not self.active:
+            self.active = True
+            self.save()
 
     def has_pending_invoices(self):
         return self.invoice_set.filter(paid=False).exists()
+
+    @staticmethod
+    def inhabited_house(house_id):
+        if house_id:
+            house_id = house_id.upper()
+            return FamilyBoss.objects.filter(house__house_id=house_id).exists()
+
+    @staticmethod
+    def disable(card_id):
+        """
+        Retorna un jefe de familia que tenga el card_id espeficicado y la propiedad active = False
+        """
+        return FamilyBoss.objects.filter(card_id=card_id, active=False).first()

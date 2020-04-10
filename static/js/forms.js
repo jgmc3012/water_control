@@ -34,7 +34,7 @@ function sendData(payload, url, method) {
                 console.error(data)
                 let listStr = ''
                 for (key in data) {
-                    listStr += `<li>${data[key]}</li>`
+                    listStr += `<li>${key} -> ${data[key]}</li>`
                 }
                 const msg = listStr ? `<ul>${listStr}</ul>`:JSON.stringify(data)
                 show_alert(okey_fetch, msg)
@@ -45,9 +45,13 @@ function sendData(payload, url, method) {
             toggleLoading()    
             console.error(e)
             if (status_fetch<500) {
-                show_alert(false, 'Verifique los datos ingresados')
+                if (status_fetch==404) {
+                    show_alert(false, 'Recurso no encontrado')
+                } else {
+                    show_alert(false, 'Verifique los datos ingresados')
+                }
             } else {
-                show_alert(false, 'Ups! Esto es vergonzoso. Verifique sus datos e intente de nuevo.\nSi el error persiste; por favor notique de esto al equipo de desarrollo.')
+                show_alert(false, 'Ups! Esto es vergonzoso. Verifique sus datos e intente de nuevo.\nSi el error persiste; por favor notifique de esto al equipo de desarrollo.')
             }
         })
         
@@ -71,4 +75,24 @@ function getJsonFromForm(selector) {
         }
     } )
     return data
+}
+
+/**
+ * 
+ * @param {*} form Un elemento formulario
+ * @param {*} method Metodo http (GET, POST, PUT, DELETE)
+ * @param {*} replaceInURLFunction algunas url de formularios(el atributo action) contiene un numero generico 12345, que debe ser remplazado. Esta funcion debe retornar dicho replace. Tambien puedes editar el action del form en esta funcion.
+ * 
+ * @returns {Promise}
+ */
+function sendForm(form, method='POST', replaceInURLFunction=null, resolve=console.log, reject=console.error) {
+    form.addEventListener('submit', function (event) {
+        event.preventDefault()
+        const data = getJsonFromForm("[api='water_control']")
+        const replaceInURL = replaceInURLFunction!= null ? replaceInURLFunction(data):''
+        const url = this.action.replace('12345', replaceInURL)
+        sendData(data, url, method)
+        .then(response => resolve(response))
+        .catch(response => reject(response))
+    })
 }

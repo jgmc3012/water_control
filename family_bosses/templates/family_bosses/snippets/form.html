@@ -25,7 +25,14 @@
       <input type="text" api='water_control' class="form-control" name="house" id="house" aria-describedby="helpHouse" placeholder="ABC-123">
       <small id="helpHouse" class="form-text text-muted">El numero o alfanumerico de identificacion de la casa o establacimiento</small>
     </div>
-
-
-    <button type="submit" class="btn btn-primary">Crear</button>
+    
+    <input api='water_control' type="hidden" name="old_card_id" id="old_card_id">
+    {% if edit %}
+    <div class="row">
+      <button id="detail_submit" type="submit" class="btn btn-primary mr-2">Actualizar</button>
+      <button id="detail_delete" type="button" class="btn btn-danger">Eliminar</button>
+    </div>
+    {% else %}
+        <button type="submit" class="btn btn-primary">Crear</button>
+    {% endif %}
 </form>

@@ -1,5 +1,6 @@
 {% url 'houses_visual:create' as house_create %}
 {% url 'family_bosses_visual:create' as family_create %}
+{% url 'family_bosses_visual:edit' as family_edit %}
 {% url 'measurers_visual:update' as measurer_update %}
 {% url 'invoices_visual:pay' as invoice_pay %}
 {% url 'invoices_visual:list' as invoice_list %}
@@ -26,6 +27,7 @@
                     <div class="nav-link" data-toggle="dropdown">Familias</div>
                     <div class="dropdown-menu">
                       <a class="dropdown-item" href="{{ family_create }}">Registrar</a>
+                      <a class="dropdown-item" href="{{ family_edit }}">Editar/Eliminar</a>
                     </div>
                 </div>
             </li>

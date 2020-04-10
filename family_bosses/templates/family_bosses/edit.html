@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="col">
+    <div id='container_search'>
+        <h2>
+            Editar ó Eliminar cliente(Jefe de familia)
+        </h2>
+        <div>
+            {% include "family_bosses/snippets/form_search.html" %}
+        </div>
+    </div>
+    <div class="d-none" id='container_famile_boss'>
+        <h3>
+            Datos del usuario
+        </h3>
+        {% include "family_bosses/snippets/form.html" with edit=True %}
+    </div>
+</div>
+{% endblock %}
+{% block javascript %}
+<script src='{% static "js/family_bosses/search.js" %}'></script>
+{% endblock javascript %}

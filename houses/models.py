@@ -19,4 +19,9 @@ def set_measurer(sender, instance, *args, **kwargs):
     if not instance.measurer:
         instance.measurer = Measurer.objects.create()
 
+def upper_house_id(sender, instance, *args, **kwargs):
+    if not instance.house_id:
+        instance.house_id = instance.house_id.upper()
+
+pre_save.connect(upper_house_id, sender=House)
 pre_save.connect(set_measurer, sender=House)
