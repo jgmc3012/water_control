@@ -12,7 +12,11 @@ from .models import FamilyBoss
 
 from invoices.utils import pay_invoices
 
+from django.contrib.auth.decorators import login_required
+from rest_framework import permissions
+
 class FamilyBossViewSet(viewsets.ModelViewSet):
+    permission_classes = [permissions.IsAuthenticated]
     """
     This viewset automatically provides `list`, `create`, `retrieve`,
     `update` and `destroy` actions.
@@ -78,8 +82,10 @@ class FamilyBossViewSet(viewsets.ModelViewSet):
                 return True
 
 
+@login_required()
 def visual_create(request):
     return render(request, 'family_bosses/create.html')
 
+@login_required()
 def visual_edit(request):
     return render(request, 'family_bosses/edit.html')

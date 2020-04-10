@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+from .views import index
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('water_control.routes')),
@@ -23,4 +25,6 @@ urlpatterns = [
     path('casas/', include('houses.urls')),
     path('medidores/', include('measurers.urls')),
     path('recibos/', include('invoices.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('/', index, name='index'),
 ]
