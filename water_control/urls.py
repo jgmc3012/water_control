@@ -26,5 +26,5 @@ urlpatterns = [
     path('medidores/', include('measurers.urls')),
     path('recibos/', include('invoices.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('/', index, name='index'),
+    path('', index, name='index'),
 ]
